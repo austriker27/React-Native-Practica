@@ -10,7 +10,9 @@ export default function App() {
     };
 
     const addGoalHandler = () => {
-        setCourseGoals([...courseGoals, enteredGoal]);
+        // setCourseGoals([...courseGoals, enteredGoal]);
+        // above syntax works but so does this: 
+        setCourseGoals(currentGoals => [...currentGoals, enteredGoal]);
     };
 
     return (
@@ -28,8 +30,7 @@ export default function App() {
                 <Button style={styles.button} title="ADD" onPress={addGoalHandler} />
             </View>
             <View>
-                
-
+                {courseGoals.map((goal) => <View style={styles.listItem}><Text key={goal}>{goal}</Text></View>)}
             </View>
         </View>
     );
@@ -61,5 +62,12 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#FF1690',
+    },
+    listItem: {
+        padding: '10',
+        backgroundColor: '#ffff',
+        borderColor: '#FF1690',
+        borderWidth: '1',
+
     }
 });
