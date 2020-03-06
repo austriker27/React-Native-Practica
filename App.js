@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TextInput, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import GoalItem from './components/GoalItem';
+import GoalInput from './components/GoalInput';
+
 
 export default function App() {
-    const [enteredGoal, setEnteredGoal] = useState('');
     const [courseGoals, setCourseGoals] = useState([]);
 
-    const goalInputHandler = (enteredText) => {
-        setEnteredGoal(enteredText);
-    };
-
-    const addGoalHandler = () => {
+    const addGoalHandler = goalTItle => {
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
-        setCourseGoals(currentGoals => [...currentGoals, {key: Math.random().toString(), value: enteredGoal}]);
+        setCourseGoals(currentGoals => [...currentGoals, { key: Math.random().toString(), value: goalTItle}]);
     };
 
     return (
@@ -20,22 +18,14 @@ export default function App() {
             <View>
                 <Text style={styles.title}>Todo List Thingy</Text>
             </View>
-            <View style={styles.container}>
-                <TextInput 
-                    placeholder="" 
-                    style={styles.inputContainer} 
-                    onChangeText={goalInputHandler}
-                    value={enteredGoal}
-                />
-                <Button style={styles.button} title="ADD" onPress={addGoalHandler} />
-            </View>
+
+            <GoalInput onAddGoal={addGoalHandler} />
+            
             <FlatList 
                 keyExtractor={(item, index) => item.id}
                 data={courseGoals} 
                 renderItem={itemData => (
-                <View style={styles.listItem}>
-                    <Text>{itemData.item.value}</Text>
-                </View>
+                    <GoalItem onDelete={() => console.log('delete')} title={itemData.item.value} />
             )} />
             
         </View>
@@ -48,33 +38,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C0658',
         height: '100%',
     },
-    container: {
-        flexDirection: 'row',
-        flex: 1,
-        color: '#FF1690',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    inputContainer: {
-        borderColor: '#FF1690', 
-        color: '#FF1690',
-        borderWidth: 1, 
-        padding: 10, 
-        width: '80%',
-    },  
-    button: {
-        backgroundColor: '#36CDC4',
-        color: '#FF1690',
-    },
     title: {
         color: '#FF1690',
     },
-    listItem: {
-        padding: 10,
-        marginVertical: 5,
-        backgroundColor: '#ffff',
-        borderColor: '#FF1690',
-        borderWidth: 1,
-
-    }
 });
