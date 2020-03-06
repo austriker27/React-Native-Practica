@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
+import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
 
 // same syntax as below as a functional component:
 // function GoalInput() {}
@@ -12,16 +12,17 @@ const GoalInput = props => {
     };
 
     return (
-        <View style={styles.container}>
-            <TextInput 
-                placeholder="" 
-                style={styles.inputContainer} 
-                onChangeText={goalInputHandler}
-                value={enteredGoal}
-            />
-            <Button style={styles.button} title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
-        </View>
-
+        <Modal>
+            <View style={styles}>
+                <TextInput 
+                    placeholder="" 
+                    style={styles.inputContainer} 
+                    onChangeText={goalInputHandler}
+                    value={enteredGoal}
+                />
+                <Button style={styles.button} title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+            </View>
+        </Modal>
     )
 }
 
