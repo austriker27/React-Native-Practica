@@ -8,11 +8,13 @@ const GoalInput = props => {
     const [enteredGoal, setEnteredGoal] = useState('');
 
     const goalInputHandler = (enteredText) => {
+        console.log('enteredText:' + enteredText)
         setEnteredGoal(enteredText);
     };
 
     const addGoalHandler = () => {
         props.onAddGoal.bind(enteredGoal);
+        console.log(enteredGoal)
         setEnteredGoal('');
     }
 

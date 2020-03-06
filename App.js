@@ -11,10 +11,13 @@ export default function App() {
     const [isAddMode, setIsAddMode] = useState(false);
 
 
-    const addGoalHandler = goalTItle => {
+    const addGoalHandler = goalTitle => {
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
-        setCourseGoals(currentGoals => [...currentGoals, { id: Math.random().toString(), value: goalTItle}]);
+        setCourseGoals(currentGoals => [
+            ...currentGoals, 
+            { id: Math.random().toString(), value: goalTitle }
+        ]);
         setIsAddMode(false);
     };
 
