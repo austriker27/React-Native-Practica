@@ -14,9 +14,13 @@ export default function App() {
     const addGoalHandler = goalTitle => {
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
+        console.log('inside add goal handler')
         setCourseGoals(currentGoals => [
             ...currentGoals, 
-            { id: Math.random().toString(), value: goalTitle }
+            { 
+                id: Math.random().toString(), 
+                value: goalTitle 
+            }
         ]);
         setIsAddMode(false);
     };
