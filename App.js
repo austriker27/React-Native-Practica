@@ -14,13 +14,14 @@ export default function App() {
     const addGoalHandler = goalTItle => {
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
-        setCourseGoals(currentGoals => [...currentGoals, { key: Math.random().toString(), value: goalTItle}]);
+        setCourseGoals(currentGoals => [...currentGoals, { id: Math.random().toString(), value: goalTItle}]);
         setIsAddMode(false);
     };
 
+    // removes the goal that matches the ID, deleting fro mlist
     const removeGoalHandler = goalId => {
         setCourseGoals(currentGoals => {
-            return currentGoals.filter((goal) => goal.id !== goalId)
+            return currentGoals.filter(goal => goal.id !== goalId)
         })
     }
 
@@ -39,10 +40,13 @@ export default function App() {
                 title="Add 
                 new goal" 
                 onPress={() => setIsAddMode(true)}
-                onCancel={cancelGoalAdditionHandler} 
             />
 
-            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} />
+            <GoalInput
+                visible={isAddMode}
+                onAddGoal={addGoalHandler}
+                onCancel={cancelGoalAdditionHandler} 
+            />
             
             <FlatList 
                 keyExtractor={(item, index) => item.id}

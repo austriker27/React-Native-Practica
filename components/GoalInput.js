@@ -12,15 +12,15 @@ const GoalInput = props => {
     };
 
     const addGoalHandler = () => {
-        props.onAddGoal.bind(enteredGoal)
+        props.onAddGoal.bind(enteredGoal);
         setEnteredGoal('');
     }
 
     return (
-        <Modal visible={props.visible} animationType="fade">
+        <Modal visible={props.visible} animationType="slide">
             <View style={styles.container}>
                 <TextInput 
-                    placeholder="" 
+                    placeholder="Hello" 
                     style={styles.input} 
                     onChangeText={goalInputHandler}
                     value={enteredGoal}
