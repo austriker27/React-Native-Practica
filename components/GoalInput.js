@@ -3,7 +3,6 @@ import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
 
 // same syntax as below as a functional component:
 // function GoalInput() {}
-
 const GoalInput = props => {
     const [enteredGoal, setEnteredGoal] = useState('');
 
