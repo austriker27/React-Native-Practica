@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
 
 
 export default function App() {
+    // useState(false) is the initial state so false 
+    // in const array: first word is the state, second word is how to change the state
     const [courseGoals, setCourseGoals] = useState([]);
+    const [isAddMode, setIsAddMode] = useState(false);
+
 
     const addGoalHandler = goalTItle => {
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
-        setCourseGoals(currentGoals => [...currentGoals, { key: Math.random().toString(), value: goalTItle}]);
+        setCourseGoals(currentGoals => [...currentGoals, { id: Math.random().toString(), value: goalTItle}]);
+        setIsAddMode(false);
     };
 
     const removeGoalHandler = goalId => {
@@ -19,13 +24,25 @@ export default function App() {
         })
     }
 
+    // cancels the modal that pops up to add goal
+    const cancelGoalAdditionHandler  = () => {
+        setIsAddMode(false);
+    }
+
     return (
         <View style={styles.root}>
             <View>
                 <Text style={styles.title}>Todo List Thingy</Text>
             </View>
 
-            <GoalInput onAddGoal={addGoalHandler} />
+            <Button 
+                title="Add 
+                new goal" 
+                onPress={() => setIsAddMode(true)}
+                onCancel={cancelGoalAdditionHandler} 
+            />
+
+            <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} />
             
             <FlatList 
                 keyExtractor={(item, index) => item.id}
