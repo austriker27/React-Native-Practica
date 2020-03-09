@@ -12,6 +12,10 @@ export default function App() {
 
 
     const addGoalHandler = goalTitle => {
+        if (goalTitle.length === 0) {
+            return;
+        }
+
         // setCourseGoals([...courseGoals, enteredGoal]);
         // above syntax works but so does this: 
         console.log('inside add goal handler')
