@@ -9,7 +9,11 @@
 // export default StartGameScreen;
 
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+import Card from '../components/Card';
+import Input from '../components/Input';
+import Colors from '../constants/colors';
 
 const StartGameScreen = props => {
     return (
@@ -17,17 +21,20 @@ const StartGameScreen = props => {
             <Text style={styles.title}>
                 Start a new game
             </Text>
-            <View style={styles.inputContainer}>
+            <Card style={styles.inputContainer}>
                 <Text>
                     Select a number
                 </Text>
-                <TextInput/>
+                <Input/>
                 <View style={styles.buttonContainer}>
-                    <Button title="Reset" onPress={() => {}}/>
-                    <Button title="Confirm" onPress={() => { }}/>
+                    <View style={styles.button}>
+                        <Button title="Reset" onPress={() => { }} color={Colors.secondary}/>
+                    </View>
+                    <View style={styles.button}>
+                        <Button title="Confirm" onPress={() => { }} color={Colors.primary}/>
+                    </View>
                 </View>
-            </View>
-
+            </Card>
         </View>
     )
  };
@@ -52,14 +59,10 @@ const styles = StyleSheet.create({
         width: 300,
         maxWidth: '80%',
         alignItems: 'center',
-        shadowColor: 'blue',
-        shadowOffset: { width: 0, height: 2},
-        shadowRadius: 6,
-        shadowOpacity: 0.26,
-        backgroundColor: 'white',
-        elevation: 5,
-        padding: 20,
-        borderRadius: 10,
+    },
+    button: {
+        flex: 1,
+        width: 100,
     }
 });
 
