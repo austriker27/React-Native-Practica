@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 
 import NumberContainer from '../components/NumberContainer';
@@ -22,10 +22,24 @@ const GameScreen = props => {
         generateRandomBetween(1, 100, props.userChoice)
     );
 
+    // manage how many rounds have ran
+    const [rounds, setRounds] = useState(0);
+
     // useRef maintains even after component rebuild
     // if state changes then the component rerenders, but with useRef, when it changes, the component doesnt rerender. we dont want a rerender when these change
     const currentLow = useRef(1);
     const currentHigh = useRef(100);
+
+    // destructure object, pulling property names out of props - so you dont have to say props.userChoice
+    const { userChoice, onGameOver } = props;
+
+    // useEffect : runs after each render cycle
+    useEffect(() => {
+        if(currentGuess === userChoice) {
+            onGameOver(rounds);
+        }
+        // second argument: specify any value outside that if changed will trigger rerender
+    }, [currentGuess, userChoice, onGameOver]);
 
     const nextGuessHandler = direction => {
         if (
@@ -46,6 +60,8 @@ const GameScreen = props => {
         const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
         // component rerendered and next guess:
         setCurrentGuess(nextNumber);
+        // add to rounds
+        setRounds(curRounds => curRounds + 1);
     }
 
     return (
