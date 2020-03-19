@@ -1,15 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 
 import Header from './components/Header';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 
+// load font and map the name... loadAsync loads promise
+const fetchFonts = () => {
+    Font.loadAsync({
+        'streamster': require('./assets/fonts/Streamster.ttf')
+    });
+};
 
 export default function App() {
     const [userNumber, setUserNumber] = useState();
     const [guessRounds, setGuessRounds] = useState(0);
+    const [dataLoaded, setDataLoaded] = useState(false);
+
+    // have to pass in function that returns promise on startSync.. because it waits until funtion is done and then runs onFinish
+    if(!dataLoaded) {
+        return <AppLoading startAsync={fetchFonts} onFinish={() => setDataLoaded(true)} />
+    }
 
     // begin new game
     const configureNewGamehandler = () => {
