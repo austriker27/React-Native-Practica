@@ -22,7 +22,11 @@ export default function App() {
 
     // have to pass in function that returns promise on startSync.. because it waits until funtion is done and then runs onFinish
     if(!dataLoaded) {
-        return <AppLoading startAsync={fetchFonts} onFinish={() => setDataLoaded(true)} />
+        return <AppLoading 
+            startAsync={fetchFonts} 
+            onFinish={() => setDataLoaded(true)} 
+            onError={(err) => console.log(err)}
+        />
     }
 
     // begin new game
