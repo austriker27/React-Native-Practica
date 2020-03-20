@@ -14,6 +14,8 @@ import { View, Text, Button, StyleSheet, TouchableWithoutFeedback, Keyboard, Ale
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import BodyText from '../components/BodyText';
+
 import Colors from '../constants/colors';
 
 const StartGameScreen = props => {
@@ -68,9 +70,9 @@ const StartGameScreen = props => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a new game</Text>
+                <Text style={styles.title}>START A NEW GAME</Text>
                 <Card style={styles.inputContainer}>
-                    <Text style={styles.text}>Select a number</Text>
+                    <BodyText style={styles.text}>Select a number</BodyText>
                     <Input 
                         style={styles.input} 
                         blurOnSubmit autoCapitalize="none" 
@@ -105,6 +107,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginVertical: 10,
         fontFamily: 'league-spartan-bold',
+        fontWeight: "700"
     },
     inputContainer: {
         width: 300,
@@ -128,8 +131,8 @@ const styles = StyleSheet.create({
         marginTop: 40,
         alignItems: 'center',
     },
-    test: {
-        fontFamily: 'streamster',
+    text: {
+        fontSize: 18,
     }
 });
 

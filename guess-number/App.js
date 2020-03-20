@@ -12,7 +12,8 @@ import GameOverScreen from './screens/GameOverScreen';
 const fetchFonts = () => {
     Font.loadAsync({
         'streamster': require('./assets/fonts/Streamster.ttf'),
-        'league-spartan-bold': require('./assets/fonts/LeagueSpartan-bold.ttf')
+        // 'league-spartan-bold': require('./assets/fonts/LeagueSpartan-bold.otf')
+        'league-spartan-bold': require('./assets/fonts/LeagueSpartan-Bold.ttf')
     });
 };
 
