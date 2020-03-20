@@ -11,7 +11,8 @@ import GameOverScreen from './screens/GameOverScreen';
 // load font and map the name... loadAsync loads promise
 const fetchFonts = () => {
     Font.loadAsync({
-        'streamster': require('./assets/fonts/Streamster.ttf')
+        'streamster': require('./assets/fonts/Streamster.ttf'),
+        'league-spartan-bold': require('./assets/fonts/LeagueSpartan-bold.ttf')
     });
 };
 

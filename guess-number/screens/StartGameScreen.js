@@ -70,7 +70,7 @@ const StartGameScreen = props => {
             <View style={styles.screen}>
                 <Text style={styles.title}>Start a new game</Text>
                 <Card style={styles.inputContainer}>
-                    <Text>Select a number</Text>
+                    <Text style={styles.text}>Select a number</Text>
                     <Input 
                         style={styles.input} 
                         blurOnSubmit autoCapitalize="none" 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
-        fontFamily: 'streamster',
+        fontFamily: 'league-spartan-bold',
     },
     inputContainer: {
         width: 300,
@@ -127,6 +127,9 @@ const styles = StyleSheet.create({
     summaryContainer: {
         marginTop: 40,
         alignItems: 'center',
+    },
+    test: {
+        fontFamily: 'streamster',
     }
 });
 
