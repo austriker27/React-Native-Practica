@@ -1,0 +1,10 @@
+{
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 985,
+  "expoServerNgrokUrl": "https://4t-qnr.anonymous.guess-number.exp.direct",
+  "packagerNgrokUrl": "https://packager.4t-qnr.anonymous.guess-number.exp.direct",
+  "ngrokPid": 1007,
+  "webpackServerPort": null
+}
