@@ -13,7 +13,8 @@ const fetchFonts = () => {
     Font.loadAsync({
         'streamster': require('./assets/fonts/Streamster.ttf'),
         // 'league-spartan-bold': require('./assets/fonts/LeagueSpartan-bold.otf')
-        'league-spartan-bold': require('./assets/fonts/LeagueSpartan-Bold.ttf')
+        'league-spartan-bold': require('./assets/fonts/LeagueSpartan-Bold.ttf'),
+        'lazer84': require('./assets/fonts/Lazer84.ttf')
     });
 };
 
