@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
-        fontFamily: 'league-spartan-bold',
+        fontFamily: 'lazer84',
         fontWeight: "700"
     },
     inputContainer: {
