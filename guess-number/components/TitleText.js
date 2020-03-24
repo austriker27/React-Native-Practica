@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const BodyText = props => {
+const TitleText = props => {
     return (
         <Text style={{ ...styles.body, ...props.style }}>
             {props.children}
@@ -11,8 +11,10 @@ const BodyText = props => {
 
 const styles = StyleSheet.create({
     body: {
-        fontFamily: 'vcr'
+        fontFamily: 'lazer84',
+        fontSize: 20,
+        letterSpacing: 3
     }
 })
 
-export default BodyText;
+export default TitleText;
