@@ -20,13 +20,6 @@ const fetchFonts = () => {
     });
 };
 
-// async componentDidMount() { 
-//     await Font.loadAsync({ 
-//         'montserrat-regular': require('./assets/font/Montserrat-Regular.ttf'), 
-//         'montserrat-bold': require('./assets/font/Montserrat-Bold.ttf') }); 
-//         this.setState({ fontLoaded: true, isLoadingComplete: true }); 
-//     }
-
 export default function App() {
     const [userNumber, setUserNumber] = useState();
     const [guessRounds, setGuessRounds] = useState(0);
@@ -61,15 +54,7 @@ export default function App() {
     }
 
     // forward pointer/reference to the startGameHandler down to StartGameScreen component
-    // let content = <StartGameScreen onStartGame={startGameHandler} />;
-
-    let content = (
-        <GameOverScreen 
-            roundsNumber={1}
-            userNumber={1}
-            onRestart={configureNewGamehandler}    
-        />
-    )
+    let content = <StartGameScreen onStartGame={startGameHandler} />;
 
     // render GameScreen only after you get a userNumber, managed in state, when user picks num
     // show game over screen
