@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 1,
         flexDirection: 'row',
+        width: '60%',
         justifyContent: 'space-between'
     },
 });
